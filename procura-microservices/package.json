@@ -1,0 +1,32 @@
+{
+  "name": "procura-microservices",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "build": "nx build",
+    "start": "nx serve",
+    "test": "nx test",
+    "lint": "nx lint",
+    "format": "nx format:write"
+  },
+  "dependencies": {
+    "@nestjs/common": "^9.0.0",
+    "@nestjs/core": "^9.0.0",
+    "@nestjs/platform-express": "^9.0.0",
+    "pg": "^8.7.1",
+    "typeorm": "^0.2.41",
+    "swagger-ui-express": "^4.1.6",
+    "class-validator": "^0.13.2",
+    "class-transformer": "^0.5.1"
+  },
+  "devDependencies": {
+    "@nestjs/cli": "^9.0.0",
+    "@nestjs/schematics": "^9.0.0",
+    "typescript": "^4.5.4",
+    "ts-jest": "^27.0.7",
+    "jest": "^27.0.6",
+    "ts-loader": "^9.2.6",
+    "eslint": "^7.32.0",
+    "prettier": "^2.5.1"
+  }
+}

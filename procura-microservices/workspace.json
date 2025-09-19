@@ -1,0 +1,86 @@
+{
+  "version": 1,
+  "projects": {
+    "api-gateway": {
+      "root": "apps/api-gateway",
+      "sourceRoot": "apps/api-gateway/src",
+      "projectType": "application",
+      "architect": {
+        "build": {
+          "builder": "@nestjs/ng-packagr:build",
+          "options": {
+            "tsConfig": "apps/api-gateway/tsconfig.app.json",
+            "outputPath": "dist/apps/api-gateway"
+          }
+        },
+        "serve": {
+          "builder": "@nestjs/ng-packagr:dev-server",
+          "options": {
+            "browserTarget": "api-gateway:build"
+          }
+        }
+      }
+    },
+    "products-service": {
+      "root": "apps/products-service",
+      "sourceRoot": "apps/products-service/src",
+      "projectType": "application",
+      "architect": {
+        "build": {
+          "builder": "@nestjs/ng-packagr:build",
+          "options": {
+            "tsConfig": "apps/products-service/tsconfig.app.json",
+            "outputPath": "dist/apps/products-service"
+          }
+        },
+        "serve": {
+          "builder": "@nestjs/ng-packagr:dev-server",
+          "options": {
+            "browserTarget": "products-service:build"
+          }
+        }
+      }
+    },
+    "orders-service": {
+      "root": "apps/orders-service",
+      "sourceRoot": "apps/orders-service/src",
+      "projectType": "application",
+      "architect": {
+        "build": {
+          "builder": "@nestjs/ng-packagr:build",
+          "options": {
+            "tsConfig": "apps/orders-service/tsconfig.app.json",
+            "outputPath": "dist/apps/orders-service"
+          }
+        },
+        "serve": {
+          "builder": "@nestjs/ng-packagr:dev-server",
+          "options": {
+            "browserTarget": "orders-service:build"
+          }
+        }
+      }
+    },
+    "ui": {
+      "root": "apps/ui",
+      "sourceRoot": "apps/ui/src",
+      "projectType": "application",
+      "architect": {
+        "build": {
+          "builder": "@nestjs/ng-packagr:build",
+          "options": {
+            "tsConfig": "apps/ui/tsconfig.app.json",
+            "outputPath": "dist/apps/ui"
+          }
+        },
+        "serve": {
+          "builder": "@nestjs/ng-packagr:dev-server",
+          "options": {
+            "browserTarget": "ui:build"
+          }
+        }
+      }
+    }
+  },
+  "defaultProject": "api-gateway"
+}

@@ -1,0 +1,5 @@
+{
+  "name": "procura-microservices",
+  "private": true,
+  "workspaces": ["apps/*", "libs/*"]
+}

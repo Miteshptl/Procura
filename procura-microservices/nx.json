@@ -1,0 +1,21 @@
+{
+  "npmScope": "procura",
+  "affected": {
+    "defaultBase": "main"
+  },
+  "tasksRunnerOptions": {
+    "default": {
+      "runner": "@nrwl/workspace:run-commands",
+      "options": {
+        "cwd": "apps",
+        "parallel": false
+      }
+    }
+  },
+  "generators": {
+    "@nrwl/angular:component": {
+      "style": "scss"
+    }
+  },
+  "defaultProject": "api-gateway"
+}

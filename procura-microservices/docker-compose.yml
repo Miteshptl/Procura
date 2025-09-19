@@ -1,0 +1,50 @@
+version: '3.8'
+
+services:
+  api-gateway:
+    build:
+      context: ./apps/api-gateway
+      dockerfile: Dockerfile
+    ports:
+      - '3000:3000'
+    depends_on:
+      - products-service
+      - orders-service
+    environment:
+      - NODE_ENV=production
+
+  products-service:
+    build:
+      context: ./apps/products-service
+      dockerfile: Dockerfile
+    ports:
+      - '3001:3000'
+    environment:
+      - NODE_ENV=production
+      - DATABASE_URL=postgres://user:password@postgres:5432/products_db
+
+  orders-service:
+    build:
+      context: ./apps/orders-service
+      dockerfile: Dockerfile
+    ports:
+      - '3002:3000'
+    environment:
+      - NODE_ENV=production
+      - DATABASE_URL=postgres://user:password@postgres:5432/orders_db
+
+  postgres:
+    image: postgres:latest
+    ports:
+      - '5432:5432'
+    environment:
+      - POSTGRES_USER=user
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_DB=products_db
+      - POSTGRES_DB=orders_db
+    volumes:
+      - ./docker/postgres/init.sql:/docker-entrypoint-initdb.d/init.sql
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:
